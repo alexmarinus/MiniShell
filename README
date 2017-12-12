@@ -1,0 +1,33 @@
+Marinus Alexandru
+Grupa 334CC
+
+Tema a constat in completarea sursei utils-lin.c cu implementarile operatiilor
+de schimbare de director (in functia shell_cd), iesire din mini-shell
+(in functia shell_exit), schimbare de variabila de mediu (in functia
+assign_env_var), executare de comenzi externe, utilizare de operatori de
+secventiere (&&, ||, ;), redirectare (<, >, 2>, &>, >>, 2>>) si
+executie (&, |).
+
+Aplicarea acestor modificari am efectuat-o in functiile parse_simple si
+parse_command.
+
+In implementare m-am utilizat de functii de redirectare a intrarii standard
+si a unuia dintre descriptorii de iesire (standard sau de eroare) in mod
+normal sau append, in functie de operatorul de redirectare prezent in comanda.
+Functiile sunt redirect_input si redirect_output si sunt implementate similar
+celor din laboratorul 2.
+
+Pentru modificarea unei variabile de mediu am implementat functiile
+isEnvVariableCommand, care verifica daca o comanda primita ca argument este
+de asignare si assignEnvVar, care efectueaza un apel setenv pentru actualizarea
+valorii de mediu.
+
+Pentru operatorii de redirectare am apelat functiile de redirectare definite,
+in functie de descriptorii de fisier implicati in comanda (s->in, s->out, s->err).
+
+In rezolvarea temei am intampinat o problema de memory leak-uri la tratarea de
+comenzi invalide si la inchiderea mini-shell-ului, problema pe care nu am
+putut-o rezolva.
+
+Mentionez ca nu am folosit gitlab in rezolvarea temei si ca apreciez
+parserul pus la dispozitie pentru tema.
